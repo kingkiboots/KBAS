@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KBAS.iml" filepath="$PROJECT_DIR$/KBAS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kbas.iml" filepath="$PROJECT_DIR$/kbas.iml" />
     </modules>
   </component>
 </project>
