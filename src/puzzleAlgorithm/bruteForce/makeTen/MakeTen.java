@@ -162,7 +162,11 @@ public class MakeTen {
 
         // 텐퍼즐을 푼다.
         makeTen.solve(val);
-
+        Set<String> res = makeTen.res;
+        if(res.size() < 1) {
+            System.out.println("주어진 숫자들로는 "+ makeTen.target+"을 만들 수 없습니다.");
+            return;
+        }
         for(String exp : makeTen.res){
             System.out.println(exp + "=" + makeTen.target);
         }
