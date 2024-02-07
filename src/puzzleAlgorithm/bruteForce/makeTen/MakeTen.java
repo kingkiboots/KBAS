@@ -167,7 +167,7 @@ public class MakeTen {
             System.out.println("주어진 숫자들로는 "+ makeTen.target+"을 만들 수 없습니다.");
             return;
         }
-        for(String exp : makeTen.res){
+        for(String exp : res){
             System.out.println(exp + "=" + makeTen.target);
         }
     }
