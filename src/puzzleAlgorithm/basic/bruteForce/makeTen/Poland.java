@@ -1,4 +1,4 @@
-package puzzleAlgorithm.bruteForce.makeTen;
+package puzzleAlgorithm.basic.bruteForce.makeTen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public class Poland {
      */
     double calcPoland(String exp){
         // 계산을 위한 배열
-        List space = new ArrayList<Double>();
+        List<Double> space = new ArrayList<>();
         for(char c : exp.toCharArray()){
             if(c >= '0' && c <= '9') {
                 // c가 수를 표시하는 문자일 경우
@@ -23,8 +23,8 @@ public class Poland {
             } else {
                 // c가 연산자이면 말미에서 2개의 수를 꺼낸다.
                 int len = space.size();
-                double second = (Double) space.remove(len - 1);
-                double first = (Double) space.remove(len - 2);
+                double second = space.remove(len - 1);
+                double first = space.remove(len - 2);
 
                 // 연산결과를 배열 말미에 삽입한다.
                 switch (c){
@@ -45,8 +45,7 @@ public class Poland {
         }
         // 배열 말미에 남아 있는 값을 반환한다.
         int len = space.size();
-        double res = (double) space.get(len - 1);
-        return res;
+        return space.get(len - 1);
     }
 
     /**
@@ -56,7 +55,7 @@ public class Poland {
      */
     String decodePoland(String exp){
         // 기존 계산식 복원을 위한 배열
-        List space = new ArrayList<String>();
+        List<String> space = new ArrayList<>();
 
         // 역폴란드 표기법 exp의 각 문자 c를 순서로 본다.
         for(char c: exp.toCharArray()){
@@ -66,8 +65,8 @@ public class Poland {
             } else {
                 // c가 연산자이면
                 int len = space.size();
-                String second = (String) space.remove(len - 1);
-                String first = (String) space.remove(len - 2);
+                String second = space.remove(len - 1);
+                String first = space.remove(len - 2);
 
                 // 곱셈, 나눗셈에서는 연산자의 우선순위가 높으므로
                 // 그 전후의 계산식(단독 수 제외)에 괄호를 붙힌다.
@@ -96,7 +95,6 @@ public class Poland {
             }
         }
         int len = space.size();
-        String res = (String) space.get(len - 1);
-        return res;
+        return space.get(len - 1);
     }
 }

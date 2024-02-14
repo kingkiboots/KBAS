@@ -1,4 +1,4 @@
-package puzzleAlgorithm.bruteForce.makeTen;
+package puzzleAlgorithm.basic.bruteForce.makeTen;
 
 
 import java.io.BufferedReader;
