@@ -1,4 +1,6 @@
-package puzzleAlgorithm.basic.recursive.permutation;
+package puzzleAlgorithm.basic.recursive.basic.combination;
+
+import java.util.Arrays;
 
 /**
  * 1,2,3,4 이 숫자들로 2개의 숫자를 만들 수 있는 조합을 구하시오.
@@ -21,5 +23,27 @@ package puzzleAlgorithm.basic.recursive.permutation;
  * 3. 그 상태로 백트래킹이 되는 것이다.
  * */
 public class Combination {
+    private int[] N = {1, 2, 3, 4};
+    private int R = 2;
 
+    int[] result = new int[R];
+    private void DFS (int depth, int begin) {
+        if(depth == R){
+            System.out.println(Arrays.toString(result));
+        } else {
+            for (int i = begin; i < N.length; i++){
+                result[depth] = N[i];
+                DFS(depth + 1, i + 1);
+            }
+        }
+    }
+
+    void solve () {
+        DFS(0, 0);
+    }
+
+    public static void main(String[] args) {
+        Combination combination = new Combination();
+        combination.solve();
+    }
 }
