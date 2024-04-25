@@ -23,18 +23,19 @@ import java.util.Arrays;
  * 3. 그 상태로 백트래킹이 되는 것이다.
  * */
 public class Combination {
-    private int[] N = {1, 2, 3, 4};
-    private int R = 2;
+    private final int[] N = {1, 2, 3, 4};
+    private final int R = 2;
 
-    int[] result = new int[R];
+    private final int[] result = new int[R];
+
     private void DFS (int depth, int begin) {
         if(depth == R){
             System.out.println(Arrays.toString(result));
-        } else {
-            for (int i = begin; i < N.length; i++){
-                result[depth] = N[i];
-                DFS(depth + 1, i + 1);
-            }
+            return;
+        }
+        for (int i = begin; i < N.length; i++) {
+            result[depth] = N[i];
+            DFS(depth + 1, i + 1);
         }
     }
 

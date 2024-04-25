@@ -9,25 +9,25 @@ import java.util.Arrays;
  */
 public class Permutation {
 
-    private int[] N = {1, 2, 3, 4};
-    private int R = 2;
+    private final int[] N = {1, 2, 3, 4};
+    private final int R = 2;
 
-    private int[] result = new int[R];
-    private boolean[] checkList = new boolean[N.length];
+    private final int[] result = new int[R];
+    private final boolean[] checkList = new boolean[N.length];
 
     private void DFS(int depth, int begin) {
         if(depth == R){
             System.out.println(Arrays.toString(result));
-        }else{
-            for(int i = 0; i < N.length; i++){
-                if(checkList[i]) {
-                    continue;
-                }
-                result[depth] = N[i];
-                checkList[i] = true;
-                DFS(depth + 1, begin + 1);
-                checkList[i] = false;
+            return;
+        }
+        for(int i = 0; i < N.length; i++){
+            if(checkList[i]) {
+                continue;
             }
+            result[depth] = N[i];
+            checkList[i] = true;
+            DFS(depth + 1, begin + 1);
+            checkList[i] = false;
         }
     }
 
