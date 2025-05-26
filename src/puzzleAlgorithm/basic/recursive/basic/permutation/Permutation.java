@@ -9,13 +9,13 @@ import java.util.Arrays;
  */
 public class Permutation {
 
-    private final int[] N = {1, 2, 3, 4};
-    private final int R = 2;
+    final int[] N = {1, 2, 3, 4};
+    final int R = 2;
 
-    private final int[] result = new int[R];
-    private final boolean[] checkList = new boolean[N.length];
+    final int[] result = new int[R];
+    final boolean[] checkList = new boolean[N.length];
 
-    private void DFS(int depth, int begin) {
+    void DFS(int depth, int begin) {
         if(depth == R){
             System.out.println(Arrays.toString(result));
             return;

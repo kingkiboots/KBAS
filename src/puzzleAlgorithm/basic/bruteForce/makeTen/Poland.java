@@ -15,7 +15,7 @@ public class Poland {
         for(char c : exp.toCharArray()){
             if(c >= '0' && c <= '9') {
                 // c가 수를 표시하는 문자일 경우
-                // '7'처럼 문자 정수르르 7과 같은 수로 반환한다.
+                // '7'처럼 문자 정수를 7과 같은 수로 반환한다.
                 double add =  c - '0';
 
                 // 배열 말미에 삽입한다.

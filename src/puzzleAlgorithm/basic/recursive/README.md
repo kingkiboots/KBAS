@@ -101,3 +101,5 @@ private Set<String> permute(int[] val){
 
 ## 이번시간에는 무엇을 하나?
 DFS를 이용하여 순열과 조합을 만드는 재귀함수를 만들고, 10개의 수를 이용해 100을 만드는 고마치잔 퍼즐을 만들어보도록 하겠다.
+* [순열](/puzzleAlgorithm/basic/recursive/basic/permutation/README.md)
+* [조합](/puzzleAlgorithm/basic/recursive/basic/combination/README.md)
