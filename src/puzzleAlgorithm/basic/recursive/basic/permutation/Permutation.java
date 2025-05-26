@@ -6,7 +6,7 @@ import java.util.Arrays;
  * nPr
  * 1234 네개의 숫자로 만들 수 있는 순열을 구하세요
  */
-public class Permutation extends AbstractPermutaion {
+public class Permutation extends AbstractPermutation {
 
     Permutation(int[] N, int R) {
         super(N, R);

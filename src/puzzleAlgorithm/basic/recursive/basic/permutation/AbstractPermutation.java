@@ -2,7 +2,7 @@ package puzzleAlgorithm.basic.recursive.basic.permutation;
 
 import common.utils.MathematicsUtils;
 
-public abstract class AbstractPermutaion {
+public abstract class AbstractPermutation {
 
     protected int length = 0;
 
@@ -12,7 +12,7 @@ public abstract class AbstractPermutaion {
     protected final int[] result;
     protected final boolean[] checkList;
 
-    AbstractPermutaion(int[] N, int R){
+    AbstractPermutation(int[] N, int R){
         this.N = N;
         this.R = R;
         this.result = new int[R];
