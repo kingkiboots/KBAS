@@ -12,14 +12,15 @@
 * 재귀 함수는 가독성이 좋다.
 
 위의 차이를 본다면 반복문과 재귀함수 호출 중 반복문을 사용하는 게 더 효율적으로 느껴질 수 있다.<br/>
-그럼에도 불구하고, **재귀호출를 많이 사용하는 이유가 있다.**
+그럼에도 불구하고, **재귀호출를 많이 사용하는 데에는 이유가 있다.**
+<br />
 
-1. 변수의 개수를 줄일 수 있다.
-대표적으로, 변수가(variable)의 개수가 줄어든다.
+#### 1. 변수의 개수를 줄일 수 있다.
+대표적으로, 변수가(variable)의 개수가 줄어든다.<br/>
 이는 mutable state(변경 가능한 상태)를 줄임으로서 프로그램 오류가 발생할 수 있는 가능성과 인간이 실수할 가능성을 줄일 수 있다.<br/>
 
-2. 알고리즘 자체가 재귀가 더 자연스러울 때에
-수열의 점화식을 보더라도 f(n)을 구하려면 f(n-1) f(n-2) ... 도 구해야하는데 인자만 바꾸어 함수 자기 자신을 호출하면 된다.<br />
+#### 2. 알고리즘 자체가 재귀가 더 자연스러울 때에<br/>
+수열의 점화식을 보더라도 f(n)을 구하려면 f(n-1) f(n-2) ... 를 구해야하는데 인자값만 바꾸어 함수 자기 자신을 호출하면 된다.<br />
 물론 반복문으로도 가능하지만 재귀호출을 이용하면 더욱 간단하게 구현할 수 있다.
 
 > 저번 시간의 예시를 들어 좀 더 자세히 설명해보도록 하겠다.
@@ -49,6 +50,16 @@ private void permute(int[] val, int start, Set<String> everyCases){
         }
     }
 }
+
+/**
+ * 4개의 수를 조합하여 24개의 경우의 수를 만들어내는 메소드
+ * @param val 입력받은 4개의 숫자
+ */
+private Set<String> generatePermutation(int[] val){
+    Set<String> everyCases = new HashSet<>();
+    permute(val, 0, everyCases);
+    return everyCases;
+}
 ```
 
 하지만 이 메서드를 재귀를 사용하지 않고 반복문으로 한다면 아래와 같은 메서드가 된다.<br/>
@@ -59,7 +70,7 @@ private void permute(int[] val, int start, Set<String> everyCases){
  * @param val 입력받은 4개의 숫자
  * @return 4개의 수를 조합하여 만든 12개의 경우의 수 문자열
  */
-private Set<String> permute(int[] val){
+private Set<String> generatePermutation(int[] val){
     int len = val.length;
     Set<String> everyCases = new HashSet<>();
     for(int i = 0; i < len; i++){
