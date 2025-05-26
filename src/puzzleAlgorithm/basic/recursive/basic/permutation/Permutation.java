@@ -4,20 +4,18 @@ import java.util.Arrays;
 
 /**
  * nPr
- *
  * 1234 네개의 숫자로 만들 수 있는 순열을 구하세요
  */
-public class Permutation {
+public class Permutation extends AbstractPermutaion {
 
-    final int[] N = {1, 2, 3, 4};
-    final int R = 2;
+    Permutation(int[] N, int R) {
+        super(N, R);
+    }
 
-    final int[] result = new int[R];
-    final boolean[] checkList = new boolean[N.length];
-
-    void DFS(int depth, int begin) {
+    protected void DFS(int depth) {
         if(depth == R){
             System.out.println(Arrays.toString(result));
+            length++;
             return;
         }
         for(int i = 0; i < N.length; i++){
@@ -26,17 +24,27 @@ public class Permutation {
             }
             result[depth] = N[i];
             checkList[i] = true;
-            DFS(depth + 1, begin + 1);
+            DFS(depth + 1);
             checkList[i] = false;
         }
     }
 
     void solve(){
-        DFS(0, 0);
+        DFS(0);
+        if (this.checkIfPermutationCorrect()){
+            System.out.println("계산이 정확합니다.");
+        }
+        else {
+            System.out.println("계산이 정확하지 않습니다.");
+        }
     }
 
+
     public static void main(String[] args) {
-        Permutation permutation = new Permutation();
+        int[] N = {1,2,3,4};
+        int R = 2;
+
+        Permutation permutation = new Permutation(N, R);
         permutation.solve();
     }
 }
