@@ -2,6 +2,9 @@ package puzzleAlgorithm.basic.recursive.gomachijan;
 
 import java.util.*;
 
+/**
+ * 내가 한번 해본 버전
+ */
 public class Gomachijan {
 
     private final char EMPTY = 0;
@@ -18,10 +21,10 @@ public class Gomachijan {
     Set<String> res = new HashSet<>();
 
     // 만들고자 하는 수
-    private final double target;
+    private final double TARGET;
 
     Gomachijan(double target){
-        this.target = target;
+        this.TARGET = target;
         this.OPS_MAX = 8;
     }
 
@@ -97,7 +100,7 @@ public class Gomachijan {
      * @return 곱셈 나눗셈이 처리되고 난 후 남은 숫자와 연산자의 튜플
      */
     private AbstractMap.SimpleEntry<List<Double>, List<Character>> calcMulDiv(List<Double> vals, List<Character> signs) {
-        // 곱셈 나눗샘 처리 후의 연산식을 나타내는 데이터
+        // 곱셈 나눗셈 처리 후의 연산식을 나타내는 데이터
         List<Double> newValues = new ArrayList<>(); // 수
         List<Character> newSigns = new ArrayList<>(); // 연산자
 
@@ -182,7 +185,7 @@ public class Gomachijan {
         double EPS = 1e-9; // 충분히 작은 값
 
 
-        if (Math.abs(calcRes - target) < EPS){
+        if (Math.abs(calcRes - TARGET) < EPS){
             String decoded = decode(signs);
             res.add(decoded);
         }
