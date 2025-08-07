@@ -2,7 +2,7 @@ package puzzleAlgorithm.basic.recursive.towerOfHanoi;
 
 public class TowerOfHanoi {
 
-    StringBuilder sb = new StringBuilder();
+    private final StringBuilder sb = new StringBuilder();
 
     private void move(int N, String from, String to) {
         sb.append(N)
@@ -27,7 +27,7 @@ public class TowerOfHanoi {
 
     protected void solve(int N) {
         hanoi(N, "A", "C", "B");
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 
     public static void main(String[] args) {
