@@ -16,6 +16,7 @@ def insertion_sort(array):
     for i in range(1, n):
         for j in range(i):
             cur_index = i - j
+            print(i, j, cur_index)
             if array[cur_index] < array[cur_index - 1]:
                 array[cur_index], array[cur_index - 1] = array[cur_index - 1], array[cur_index]
             else:

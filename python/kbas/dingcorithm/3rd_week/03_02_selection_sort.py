@@ -15,6 +15,7 @@ def selection_sort(array):
     for i in range(n - 1):
         min_index = i
         for j in range(n - i):
+            print(i, j)
             if array[i + j] < array[min_index]:
                 min_index = i + j
         array[i], array[min_index] = array[min_index], array[i]
