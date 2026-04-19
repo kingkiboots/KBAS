@@ -23,23 +23,24 @@ input = 23
 
 def find_prime_list_under_number(number):
     # 이 부분을 채워보세요!
-    prime_array = [False] * (number + 1)
+    not_prime_array = [False] * (number + 1)
 
     for i in range(2, number + 1):
-        if prime_array[i]:
+        if not_prime_array[i] :
             continue
         j = i * i
+
         while j <= number:
-            prime_array[j] = True
+            not_prime_array[j] = True
             j += i
-
-    prime_number_array = []
-    for i in range(len(prime_array)):
-        if i < 2 or prime_array[i]:
+    
+    prime_num_array = []
+    for i in range(len(not_prime_array)):
+        if i < 2 or not_prime_array[i]:
             continue
-        prime_number_array.append(i)
-
-    return prime_number_array
+        prime_num_array.append(i)
+    
+    return prime_num_array
 
 
 result = find_prime_list_under_number(input)
