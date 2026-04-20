@@ -20,15 +20,15 @@ def merge(array1, array2):
             array1_index += 1
             result.append(array2[array2_index])
             array2_index += 1
-
+    
     while array1_index < len(array1):
         result.append(array1[array1_index])
         array1_index += 1
-    
+
     while array2_index < len(array2):
         result.append(array2[array2_index])
         array2_index += 1
-
+    
     return result
 
 
@@ -38,9 +38,9 @@ def merge_sort(array):
         return array
 
     mid = (0 + len(array)) // 2
-    left_array = merge_sort(array[:mid]) # 왼쪽 부분을 정렬하고
-    right_array = merge_sort(array[mid:]) # 오른쪽 부분을 정렬하고
-    print(left_array, right_array)
+    left_array = merge_sort(array[mid:])
+    right_array = merge_sort(array[:mid])
+
     return merge(left_array, right_array)
 
 print(merge_sort([5,3,1,2,6,8,7,4]))
