@@ -29,34 +29,31 @@ class MaxHeap:
             else:
                 break
 
+    # 항상 정렬이 되어있어야 하기 떄문에 시간 복잡도가 O(logN)이다 하지만 그렇기에 최대, 최소값 뽑기에 최적임
     def delete(self):
         # 구현해보세요!
-        root_index = 1
-        last_index = len(self.items) - 1
+        self.items[1], self.items[-1] = self.items[-1], self.items[1]
+        prev_max = self.items.pop()
 
-        # 1. 루트 노드와 맨 끝에 있는 원소를 교체한다.
-        self.items[root_index], self.items[-1] = self.items[-1], self.items[root_index]
-        # 5. 2에서 제거한 원래 루트 노드를 반환합니다.
-        deletion = self.items.pop()
-
-        cur_index = root_index
-        # 4. 자식 노드 둘 보다 부모 노드가 크거나 가장 바닥에 도달하지 않을 때까지 3. 과정을 반복합니다.
-        while cur_index < last_index:
+        cur_index = 1
+        while cur_index <= len(self.items) - 1:
             left_child_index = cur_index * 2
             right_child_index = cur_index * 2 + 1
-            # 3. 변경된 노드와 자식 노드들을 비교합니다. 두 자식 중 더 큰 자식과 비교해서 자신보다 자식이 더 크다면 자리를 바꿉니다.
-            if self.items[cur_index] < self.items[left_child_index] or (right_child_index <= last_index and self.items[cur_index] < self.items[right_child_index]):
-                # 왼쪽 자식이 더 크다면 부무랑 왼쪽 자식이랑 교체
-                if self.items[left_child_index] > self.items[right_child_index]:
-                    self.items[cur_index], self.items[left_child_index] = self.items[left_child_index], self.items[cur_index]
-                # 오른쪽 자식이 더 크다면 부무랑 오른쪽 자식이랑 교체
-                else:
-                    self.items[cur_index], self.items[right_child_index] = self.items[right_child_index], self.items[cur_index]
-            else:
-                break
+            max_index = cur_index
 
-        # 5. 2에서 제거한 원래 루트 노드를 반환합니다.
-        return deletion  # 8 을 반환해야 합니다.
+            if left_child_index <= len(self.items) - 1 and self.items[left_child_index] > self.items[max_index]:
+                max_index = left_child_index
+
+            if right_child_index <= len(self.items) - 1 and self.items[right_child_index] > self.items[max_index]:
+                max_index = right_child_index
+            
+            if cur_index == max_index:
+                break
+            
+            self.items[cur_index], self.items[max_index] = self.items[max_index], self.items[cur_index]
+            cur_index = max_index
+            
+        return prev_max
 
 max_heap = MaxHeap()
 max_heap.insert(8)
